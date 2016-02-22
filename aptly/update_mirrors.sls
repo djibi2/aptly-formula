@@ -8,7 +8,7 @@ include:
   {%- set homedir = salt['pillar.get']('aptly:homedir', '/var/lib/aptly') -%}
   {%- set keyring = salt['pillar.get']('aptly:keyring', 'trustedkeys.gpg') -%}
 
-  {%- set update_mirror_cmd = "aptly mirror update'" -%}
+  {%- set update_mirror_cmd = "aptly mirror update" -%}
 
 update_{{ mirror }}_mirror:
   cmd.run:
@@ -17,6 +17,6 @@ update_{{ mirror }}_mirror:
     - env:
       - HOME: {{ homedir }}
     - require:
-      - sls: aptly.aptly_config
+      - sls: aptly.create_mirrors
 
 {% endfor %}
