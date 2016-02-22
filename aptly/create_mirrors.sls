@@ -24,7 +24,7 @@ create_{{ mirror }}_mirror:
       - HOME: {{ homedir }}
     - require:
       - sls: aptly.aptly_config
-      - cmd: add_{{ mirror }}_gpg_key
+      #- cmd: add_{{ mirror }}_gpg_key
 
   {% if opts['keyid'] is defined %}
 add_{{ mirror }}_gpg_key:
