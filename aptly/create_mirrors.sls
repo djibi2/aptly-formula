@@ -29,7 +29,7 @@ create_{{ mirror }}_mirror:
   {% if opts['keyid'] is defined %}
 add_{{ mirror }}_gpg_key:
   cmd.run:
-    - name: gpg --no-default-keyring --keyring {{ keyring }} --keyserver {{ opts['keyserver']|default('keys.gnupg.net') }} --recv-keys {{ opts['keyid'] }}
+    - name: gpg --no-default-keyring --keyring {{ keyring }} --keyserver {{ opts['keyserver']|default('keys.gnupg.net:80') }} --recv-keys {{ opts['keyid'] }}
     - user: aptly
   {% elif opts['key_url'] is defined %}
 add_{{ mirror }}_gpg_key:
