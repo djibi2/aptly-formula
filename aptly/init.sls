@@ -5,7 +5,7 @@ aptly_repo:
     - dist: squeeze
     - file: /etc/apt/sources.list.d/aptly.list
     - keyid: 2A194991
-    - keyserver: 'keys.gnupg.net:80'
+    - keyserver: keys.gnupg.net:80
     - require_in:
       - pkg: aptly
 
