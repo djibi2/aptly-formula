@@ -16,7 +16,7 @@ update_{{ mirror }}_mirror:
     - user: aptly
     - env:
       - HOME: {{ homedir }}
-    - require:
-      - sls: aptly.create_mirrors
+  #  - require:
+  #    - sls: aptly.create_mirrors
 
 {% endfor %}
