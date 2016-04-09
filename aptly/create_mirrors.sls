@@ -9,11 +9,7 @@ include:
   {%- set keyring = salt['pillar.get']('aptly:keyring', 'trustedkeys.gpg') -%}
   {%- if opts['url'] is defined -%}
     {# if we have a url parameter #}
-    {%- set create_mirror_cmd = "aptly mirror create -architectures='" \
-    ~ opts['architectures']|default([])|join(',') ~ "' \
-    " ~ mirror ~ " " ~ opts['url'] ~ " \
-    " ~ opts['distribution']|default('') ~ " \
-    " ~ opts['components']|default([])|join(' ') -%}
+    {%- set create_mirror_cmd = "aptly mirror create -architectures='" ~ opts['architectures']|default([])|join(',') ~ "' " ~ mirror ~ " " ~ opts['url'] ~ " " ~ opts['distribution']|default('') ~ " " ~ opts['components']|default([])|join(' ') -%}
   {% elif opts['ppa'] is defined %}
     {# otherwise, if we have a ppa parameter  #}
     {%- set create_mirror_cmd = "aptly mirror create -architectures='" ~ opts['architectures']|default([])|join(',') ~ "' " ~ mirror ~ " ppa:" ~ opts['ppa'] -%}
