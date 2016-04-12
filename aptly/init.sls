@@ -4,8 +4,7 @@ aptly_repo:
     - name: deb http://repo.aptly.info/ squeeze main
     - dist: squeeze
     - file: /etc/apt/sources.list.d/aptly.list
-    - keyid: 9E3E53F19C7DE460
-    - keyserver: keys.gnupg.net:80
+    - key_url: salt://aptly/key/pubkey.txt     
     - require_in:
       - pkg: aptly
 
